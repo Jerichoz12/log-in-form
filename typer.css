@@ -1,0 +1,322 @@
+/* Base styles adapted from style.css */
+body {
+    margin: 0;
+    background: #1a1a1a; /* Dark grey background */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff; /* White text color for body */
+}
+
+.container {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    margin: auto;
+    aspect-ratio: 16/9; /* Adjust as needed */
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1em;
+    width: 90%; /* Make container responsive */
+    max-width: 600px; /* Max width for the container */
+}
+
+.input-container {
+    /* Reusing the futuristic border/shadow effect */
+    filter: drop-shadow(46px 36px 24px #4090b5)
+      drop-shadow(-55px -40px 25px #9e30a9);
+    animation: blinkShadowsFilter 8s ease-in infinite;
+    width: 100%; /* Make input-container fill its parent */
+}
+
+.input-content {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    padding-inline: 1em;
+    position: relative; /* Needed for pseudo-elements */
+    padding: 20px; /* Add some padding inside the container */
+}
+
+.input-content::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Cover the whole content area */
+    filter: blur(40px);
+    /* Using the same clip-path for shape */
+    -webkit-clip-path: polygon(
+      26% 0,
+      66% 0,
+      92% 0,
+      100% 8%,
+      100% 89%,
+      91% 100%,
+      7% 100%,
+      0 92%,
+      0 0
+    );
+    clip-path: polygon(
+      26% 0,
+      66% 0,
+      92% 0,
+      100% 8%,
+      100% 89%,
+      91% 100%,
+      7% 100%,
+      0 92%,
+      0 0
+    );
+    background: rgba(122, 251, 255, 0.5568627451);
+    transition: all 1s ease-in-out;
+    z-index: -1; /* Place behind content */
+}
+
+.input-content::after {
+    content: "";
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    box-shadow: inset 0px 0px 20px 20px #212121;
+    /* Reusing the background pattern */
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(64, 144, 181, 0.6) 1px,
+        rgb(0, 0, 0) 3px,
+        hsl(295, 60%, 12%) 5px,
+        #153544 4px,
+        transparent 0.5%
+      ),
+      repeating-linear-gradient(
+        to left,
+        hsl(295, 60%, 12%) 100%,
+        hsla(295, 60%, 12%, 0.99) 100%
+      );
+    /* Reusing the clip-path for shape */
+    -webkit-clip-path: polygon(
+      26% 0,
+      31% 5%,
+      61% 5%,
+      66% 0,
+      92% 0,
+      100% 8%,
+      100% 89%,
+      91% 100%,
+      7% 100%,
+      0 92%,
+      0 0
+    );
+    clip-path: polygon(
+      26% 0,
+      31% 5%,
+      61% 5%,
+      66% 0,
+      92% 0,
+      100% 8%,
+      100% 89%,
+      91% 100%,
+      7% 100%,
+      0 92%,
+      0 0
+    );
+    animation: backglitch 50ms linear infinite;
+    z-index: -1; /* Place behind content */
+}
+
+.input-dist {
+    z-index: 80;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding-inline: 1em;
+    padding-block: 1.2em;
+    grid-template-columns: 1fr;
+}
+
+.input-type {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1em; /* Adjust gap as needed */
+    font-size: 1.1rem;
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    color: #fff; /* Text color inside input-type */
+}
+
+h2 {
+    color: #06aed8; /* Color for the heading */
+    margin-bottom: 10px;
+}
+
+#pastedLink {
+    font-size: 0.9rem;
+    color: #ccc;
+    word-break: break-all; /* Break long links */
+    margin-bottom: 20px;
+}
+
+#generatedCode {
+    text-align: left;
+    white-space: pre-wrap; /* Wrap long lines */
+    word-break: break-all;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for code */
+    padding: 15px;
+    border-radius: 5px;
+    max-height: 200px; /* Limit height and add scroll if needed */
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.8rem;
+    color: #00ff00; /* Green text for code */
+    border: 1px solid #06aed8; /* Border for code block */
+}
+
+#paymentMessage {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px solid #ff00ff; /* Pink border */
+    background-color: rgba(255, 0, 255, 0.1); /* Semi-transparent pink background */
+    border-radius: 5px;
+    color: #fff;
+}
+
+#paymentMessage p {
+    margin: 5px 0;
+    font-style: normal; /* Override italic from container */
+    font-weight: normal; /* Override bold from container */
+}
+
+#qrCode {
+    width: 250px; /* Increase size from 150px to 250px */
+    height: 250px; /* Increase size from 150px to 250px */
+    margin-top: 10px;
+    border: 5px solid #06aed8; /* Border around QR code */
+    background-color: #fff; /* White background for QR code area */
+}
+
+/* Tanggalin ang mga sumusunod na styles */
+.notification,
+.back-button,
+.back-button:hover {
+    display: none;
+}
+
+.notification-center {
+    position: fixed; /* Stay in place even when scrolling */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's size */
+    background-color: rgba(255, 0, 0, 0.8); /* Red background with transparency */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000; /* Stay on top of other elements */
+    text-align: center;
+    font-size: 1.2em;
+    border: 2px solid white;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Keyframes from style.css (copy these from your style.css) */
+@keyframes backglitch {
+    0% {
+      box-shadow: inset 0px 20px 20px 30px #212121;
+    }
+
+    50% {
+      box-shadow: inset 0px -20px 20px 30px hsl(297, 42%, 10%);
+    }
+
+    to {
+      box-shadow: inset 0px 20px 20px 30px #212121;
+    }
+  }
+
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg) translate(-50%, 20%);
+    }
+
+    50% {
+      transform: rotate(180deg) translate(40%, 10%);
+    }
+
+    to {
+      transform: rotate(360deg) translate(-50%, 20%);
+    }
+  }
+
+@keyframes blinkShadowsFilter {
+    0% {
+      filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
+        drop-shadow(-55px -40px 28px #9e30a9);
+    }
+
+    25% {
+      filter: drop-shadow(46px -36px 24px rgba(64, 144, 181, 0.8980392157))
+        drop-shadow(-55px 40px 24px #9e30a9);
+    }
+
+    50% {
+      filter: drop-shadow(46px 36px 30px rgba(64, 144, 181, 0.8980392157))
+        drop-shadow(-55px 40px 30px rgba(159, 48, 169, 0.2941176471));
+    }
+
+    75% {
+      filter: drop-shadow(20px -18px 25px rgba(64, 144, 181, 0.8980392157))
+        drop-shadow(-20px 20px 25px rgba(159, 48, 169, 0.2941176471));
+    }
+
+    to {
+      filter: drop-shadow(46px 36px 28px rgba(64, 144, 181, 0.3411764706))
+        drop-shadow(-55px -40px 28px #9e30a9);
+    }
+  }
+
+#referenceIdSection {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #06aed8;
+}
+
+#referenceId {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #06aed8;
+    border-radius: 5px;
+    background: #1a1a1a;
+    color: #fff;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#submitReferenceId {
+    padding: 10px 20px;
+    background: #06aed8;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#submitReferenceId:hover {
+    background: #048db0;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Paste Link</title>
+    <link rel="stylesheet" href="ai.css">
+    <style>
+        html, body {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="ssstik.io_@elsinnombre2487_1747509557128.mp4" type="video/mp4">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="container">
+        <div class="input-container">
+            <div class="input-content">
+                <div class="input-dist">
+                    <div class="input-type">
+                        <input class="input-is" type="text" id="linkInput" required="" placeholder="Paste your link here" />
+                        <button class="submit" id="generateButton">Generate Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-play background music when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            bgMusic.play().catch(function(error) {
+                console.log("Audio play failed:", error);
+            });
+
+            // Add click event to document to enable audio on user interaction
+            document.addEventListener('click', function() {
+                bgMusic.play().catch(function(error) {
+                    console.log("Audio play failed:", error);
+                });
+            }, { once: true });
+        });
+    </script>
+    <script src="ai.js"></script>
+</body>
+</html>
